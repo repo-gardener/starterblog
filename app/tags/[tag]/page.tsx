@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
 export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
-  const paths = tagKeys.map((tag) => ({
+  // Filter out the 'page' tag to avoid conflict with app/tags/page.tsx
+  const filteredTagKeys = tagKeys.filter((tag) => tag !== 'page')
+  const paths = filteredTagKeys.map((tag) => ({
     tag: tag,
   }))
   return paths
