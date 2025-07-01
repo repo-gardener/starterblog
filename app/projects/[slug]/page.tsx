@@ -1,4 +1,3 @@
-'use client'
 import { useParams } from 'next/navigation'
 import projectsData from '@/data/projectsData'
 import { notFound } from 'next/navigation'
@@ -21,8 +20,6 @@ export default function ProjectPage() {
         <Image
           src={project.imgSrc}
           alt={project.title}
-          width={800}
-          height={450}
           className="w-full max-w-4xl rounded-md mb-6"
         />
       )}
